@@ -1,6 +1,10 @@
 require_relative "game_piece"
 require_relative "king"
+require_relative "queen"
+require_relative "bishop"
 require_relative "pawn"
+require_relative "rook"
+require_relative "horse"
 
 class Board
 
@@ -12,11 +16,34 @@ class Board
 		@grid = Array.new(rows) { Array.new(cols) }
 		
 		# Fills the game grid with data
+
+		# Pawns
 		(0...@rows).step(1) do |i|
 			(0...@cols).step(1) do |j|
 				@grid[i][j] = Pawn.new [i,j], "Black" if i == 1
 				@grid[i][j] = Pawn.new [i,j], "White" if i == 6
 			end
+		end
+
+		# Rest of the pieces
+		col = "Black"
+		row = 0
+		2.times do 
+			@grid[row][0] = Rook.new [row,0], col
+			@grid[row][7] = Rook.new [row,0], col
+		
+			@grid[row][1] = Horse.new [row,1], col
+			@grid[row][6] = Horse.new [row,6], col
+
+			@grid[row][2] = Bishop.new [row,2], col
+			@grid[row][5] = Bishop.new [row,5], col
+
+			@grid[row][3] = Queen.new [row,3], col
+			@grid[row][4] = King.new [row,4], col
+
+			# Second iteration fill the white pieces
+			row = 7
+			col = "White"
 		end
 	end
 

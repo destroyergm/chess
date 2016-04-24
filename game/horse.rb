@@ -1,9 +1,9 @@
 require_relative "game_piece"
 
-class King < GamePiece
+class Horse < GamePiece
 	def initialize(position, color)
 		@position = position
 		@color = color
-		super "king", color == "Black" ? "♚" : "♔"
+		super "horse", color == "Black" ? "♞" : "♘"
 	end
 end
