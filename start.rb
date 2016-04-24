@@ -1,4 +1,4 @@
-require_relative "./game/king.rb"
+require_relative "./game/pawn.rb"
 
-k = King.new [2,3]
-puts k.inspect
+p = Pawn.new [2,3], "Black"
+puts p.inspect

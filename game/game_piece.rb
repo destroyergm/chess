@@ -1,6 +1,7 @@
 class GamePiece
 
-	attr_accessor :type, :color, :position
+	attr_accessor :type, :color, :position, :game_symbol
+	# Color can either be "Black" or "White"
 
 	def initialize (type, game_symbol)
 		@type = type
