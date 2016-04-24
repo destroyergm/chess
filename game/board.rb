@@ -1,3 +1,7 @@
+require_relative "game_piece"
+require_relative "king"
+require_relative "pawn"
+
 class Board
 
 	attr_accessor :grid, :rows, :cols
@@ -7,9 +11,11 @@ class Board
 		@cols = 8
 		@grid = Array.new(rows) { Array.new(cols) }
 		
-		@grid.each do |row|
-			row.map! do |element|
-				element = 0
+		# Fills the game grid with data
+		(0...@rows).step(1) do |i|
+			(0...@cols).step(1) do |j|
+				@grid[i][j] = Pawn.new [i,j], "Black" if i == 1
+				@grid[i][j] = Pawn.new [i,j], "White" if i == 6
 			end
 		end
 	end
@@ -28,8 +34,12 @@ class Board
 		@rows.times do |i|
 			print "\t#{numeric_row}\t"
 			numeric_row -= 1
-			@cols.times do 
-				print "┃ ♟ "
+			@cols.times do |j| 
+				if !@grid[i][j].nil?
+					print "┃ #{@grid[i][j].game_symbol} "
+				else
+					print "┃   "
+				end
 			end
 			print "┃\n"
 			puts "\t\t┣━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━╋━━━┫" if i < @rows-1
