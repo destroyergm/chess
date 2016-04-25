@@ -45,7 +45,7 @@ class Game
 			
 
 			@board.move_piece(from,to)
-			@color == "White" ? @color = "Black" : @color = "White" 
+			# @color == "White" ? @color = "Black" : @color = "White" 
 		end
 	end
 
