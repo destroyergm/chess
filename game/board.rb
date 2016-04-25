@@ -48,7 +48,10 @@ class Board
 	end
 
 	def move_piece(from, to)
-		@grid[to[0]][to[1]] = @grid[from[0]][from[1]]
+		piece = @grid[from[0]][from[1]]
+		piece.moved = true
+		piece.position = to
+		@grid[to[0]][to[1]] = piece
 		@grid[from[0]][from[1]] = nil
 	end
 
@@ -57,6 +60,11 @@ class Board
 		piece = @grid[from[0]][from[1]]
 		return true if piece.nil?
 		return true if piece.color != player
+
+		valid_moves = piece.get_available_moves @grid
+		puts valid_moves.inspect
+		gets
+
 		false
 	end
 
