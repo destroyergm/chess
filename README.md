@@ -3,6 +3,7 @@ This chess game implemented in ruby. It's my solution to the assignment at [The 
 # Requirements
  - Ruby
  - Linux ( tested with GNOME terminal )
+
 # About
 This is how the board looks. In order to play the game you just need to run `ruby start.rb`
 The project also includes some RSpec tests, in order to see them you type `rake`
