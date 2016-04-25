@@ -11,6 +11,7 @@ class Horse < GamePiece
 		moves = []
 		row = position[0]
 		col = position[1]
+
 		moves << [row-2,col+1] unless row-2 < 0 && col+1 > 7 && (!grid[row-2][col+1].nil? && grid[row-2][col+1].color != @color)
 		moves << [row-2,col-1] unless row-2 < 0 && col-1 < 0 && (!grid[row-2][col-1].nil? && grid[row-2][col-1].color != @color)
 		moves << [row+2,col+1] unless row+2 > 7 && col+1 > 7 && (!grid[row+2][col+1].nil? && grid[row+2][col+1].color != @color)
