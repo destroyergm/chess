@@ -51,6 +51,7 @@ class Board
 		piece = @grid[from[0]][from[1]]
 		piece.moved = true
 		piece.position = to
+
 		@grid[to[0]][to[1]] = piece
 		@grid[from[0]][from[1]] = nil
 	end
@@ -62,8 +63,12 @@ class Board
 		return true if piece.color != player
 
 		valid_moves = piece.get_available_moves @grid
-		puts valid_moves.inspect
+
+		puts "Available moves: #{valid_moves.inspect}"
 		gets
+		puts "Moving from #{from} to #{to}"
+
+		return true unless valid_moves.include? to 
 
 		false
 	end
