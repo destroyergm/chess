@@ -48,7 +48,8 @@ class Board
 	end
 
 	def move_piece(from, to)
-
+		@grid[to[0]][to[1]] = @grid[from[0]][from[1]]
+		@grid[from[0]][from[1]] = nil
 	end
 
 	def draw_board
