@@ -1,4 +1,9 @@
-require_relative "./game/pawn.rb"
+require_relative "./game/game.rb"
 
-p = Pawn.new [2,3], "Black"
-puts p.inspect
+game = Game.new
+game.start
+# TODO: 
+# 1) game.save
+# 2) game.load
+# 3) game.AI
+# 4) game.multiplayer

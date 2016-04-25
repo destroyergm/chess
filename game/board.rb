@@ -18,8 +18,8 @@ class Board
 		# Fills the game grid with data
 
 		# Pawns
-		(0...@rows).step(1) do |i|
-			(0...@cols).step(1) do |j|
+		(0...@rows).each do |i|
+			(0...@cols).each do |j|
 				@grid[i][j] = Pawn.new [i,j], "Black" if i == 1
 				@grid[i][j] = Pawn.new [i,j], "White" if i == 6
 			end
@@ -47,6 +47,9 @@ class Board
 		end
 	end
 
+	def move_piece(from, to)
+
+	end
 
 	def draw_board
 		# Header
@@ -77,6 +80,3 @@ class Board
 		puts "\t\t  a   b   c   d   e   f   g   h"
 	end
 end
-
-b = Board.new
-b.draw_board

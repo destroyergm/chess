@@ -1,4 +1,4 @@
-require_relative "../game/pawn.rb"
+require_relative "../game/pawn"
 
 describe Pawn do
 
