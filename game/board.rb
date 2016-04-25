@@ -52,7 +52,11 @@ class Board
 		@grid[from[0]][from[1]] = nil
 	end
 
-	def check?(from, to)
+	# Returns false if the move is valid, true if the move is not valid
+	def check?(from, to, player)
+		piece = @grid[from[0]][from[1]]
+		return true if piece.nil?
+		return true if piece.color != player
 		false
 	end
 

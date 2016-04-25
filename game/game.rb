@@ -29,9 +29,11 @@ class Game
 					from, to = input.split
 					from = Game::to_matrix_coordinates(from)
 					to = Game::to_matrix_coordinates(to)
-					if @board.check?(from,to) 
+					if @board.check?(from,to,@color) 
 						# move is not valid
 						puts "Invalid chess move"
+						print "Please enter again: "
+						input = gets.chomp
 					else
 						break
 					end
