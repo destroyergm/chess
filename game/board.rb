@@ -16,7 +16,7 @@ class Board
 		@grid = Array.new(rows) { Array.new(cols) }
 		
 		# Fills the game grid with data
-
+=begin
 		# Pawns
 		(0...@rows).each do |i|
 			(0...@cols).each do |j|
@@ -26,25 +26,29 @@ class Board
 		end
 
 		# Rest of the pieces
-		col = "Black"
+
+		color = "Black"
 		row = 0
 		2.times do 
-			@grid[row][0] = Rook.new [row,0], col
-			@grid[row][7] = Rook.new [row,0], col
+			@grid[row][0] = Rook.new [row,0], color
+			@grid[row][7] = Rook.new [row,0], color
 		
-			@grid[row][1] = Horse.new [row,1], col
-			@grid[row][6] = Horse.new [row,6], col
+			@grid[row][1] = Horse.new [row,1], color
+			@grid[row][6] = Horse.new [row,6], color
 
-			@grid[row][2] = Bishop.new [row,2], col
-			@grid[row][5] = Bishop.new [row,5], col
+			@grid[row][2] = Bishop.new [row,2], color
+			@grid[row][5] = Bishop.new [row,5], color
 
-			@grid[row][3] = Queen.new [row,3], col
-			@grid[row][4] = King.new [row,4], col
+			@grid[row][3] = Queen.new [row,3], color
+			@grid[row][4] = King.new [row,4], color
 
 			# Second iteration fill the white pieces
 			row = 7
-			col = "White"
+			color = "White"
 		end
+=end
+	@grid[3][3] = Horse.new [3,3], "White"
+
 	end
 
 	def move_piece(from, to)
@@ -65,9 +69,13 @@ class Board
 		valid_moves = piece.get_available_moves @grid
 
 		puts "Available moves: #{valid_moves.inspect}"
+		valid_moves.each do |move|
+			@grid[move[0]][move[1]] = Pawn.new [move[0],move[1]],"Black"
+		end
+		draw_board
 		gets
 		puts "Moving from #{from} to #{to}"
-
+		
 		return true unless valid_moves.include? to 
 
 		false
