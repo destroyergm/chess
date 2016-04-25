@@ -52,6 +52,10 @@ class Board
 		@grid[from[0]][from[1]] = nil
 	end
 
+	def check?(from, to)
+		false
+	end
+
 	def draw_board
 		# Header
 		# ...
