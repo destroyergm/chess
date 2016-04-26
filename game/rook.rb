@@ -13,22 +13,46 @@ class Rook < GamePiece
 		col = @position[1]
 
 		(row+1..7).each do |i|
-			break if !grid[i][col].nil?
+			if !grid[i][col].nil?
+				# If it's an enemy piece, you can move there
+				# If it's an ally piece, block movement
+				break if grid[i][col].color == @color
+				moves << [i,col]
+				break
+			end
 			moves << [i,col]
 		end
 
 		(row-1).downto(0) do |i|
-			break if !grid[i][col].nil?
+			if !grid[i][col].nil?
+				# If it's an enemy piece, you can move there
+				# If it's an ally piece, block movement
+				break if grid[i][col].color == @color
+				moves << [i,col]
+				break
+			end
 			moves << [i,col]
 		end
 
 		(col+1..7).each do |i|
-			break if !grid[row][i].nil?
+			if !grid[row][i].nil?
+				# If it's an enemy piece, you can move there
+				# If it's an ally piece, block movement
+				break if grid[row][i].color == @color
+				moves << [row,i]
+				break
+			end
 			moves << [row,i]
 		end
 
 		(col-1).downto(0) do |i|
-			break if !grid[row][i].nil?
+			if !grid[row][i].nil?
+				# If it's an enemy piece, you can move there
+				# If it's an ally piece, block movement
+				break if grid[row][i].color == @color
+				moves << [row,i]
+				break
+			end
 			moves << [row,i]
 		end
 

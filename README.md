@@ -10,10 +10,10 @@ The game in the current state is WIP
 ## Working features:
  - Rendering of the game board
  - Chess input to matrix parser
- - Move validation for pawns
+ - Move validation for pawns, rooks
 
 ## Not implemented:
- - Move validation for Rooks, Queens, Horses, Bishops, Kings
+ - Move validation for Queens, Horses, Bishops, Kings
  - Check-mate condtions, stalemate
  - King dosn't get a priority if he is beeing targeted
  - You can't turn pawns intro Queens when reaching the oposite side

@@ -8,7 +8,7 @@ require_relative "horse"
 
 class Board
 
-	attr_accessor :grid, :rows, :cols
+	attr_accessor :rows, :cols
 	
 	def initialize
 		@rows = 8
@@ -47,10 +47,12 @@ class Board
 			color = "White"
 		end
 =end
-	@grid[3][3] = Rook.new [3,3], "White"
+	end
 
-	@grid[3][0] = Horse.new [3,0], "Black"
-	@grid[3][6] = Horse.new [3,0], "White"
+	def new_game
+		@grid[3][3] = Rook.new [3,3], "White"
+		@grid[3][0] = Horse.new [3,0], "Black"
+		@grid[3][6] = Horse.new [3,0], "White"
 	end
 
 	def move_piece(from, to)
@@ -70,10 +72,10 @@ class Board
 
 		valid_moves = piece.get_available_moves @grid
 
-		puts "Available moves: #{valid_moves.inspect}"
 		valid_moves.each do |move|
 			@grid[move[0]][move[1]] = Pawn.new [move[0],move[1]],"Black"
 		end
+		
 		draw_board
 		gets
 		puts "Moving from #{from} to #{to}"

@@ -9,6 +9,10 @@ class Game
 	end
 
 	def start(load=nil)
+		# check for load call here
+
+		# else
+		@board.new_game
 		loop do
 			system 'clear'
 			@board.draw_board
