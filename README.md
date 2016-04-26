@@ -6,16 +6,20 @@ This chess game implemented in ruby. It's my solution to the assignment at [The 
  - Optional: Set your terminal font bigger in order to see the pieces better
 # About
 The game in the current state is WIP
-Working features:
+
+## Working features:
  - Rendering of the game board
  - Chess input to matrix parser
  - Move validation for pawns
-Not implemented:
+
+## Not implemented:
  - Move validation for Rooks, Queens, Horses, Bishops, Kings
  - Check-mate condtions, stalemate
  - King dosn't get a priority if he is beeing targeted
  - You can't turn pawns intro Queens when reaching the oposite side
  - Swap Rook and King when special conditions are met
+
+## Info
 This is how the board looks. In order to play the game you just need to run `ruby start.rb`
 The project also includes some RSpec tests, in order to see them you type `rake`
 ```
