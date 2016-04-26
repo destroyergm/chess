@@ -47,8 +47,10 @@ class Board
 			color = "White"
 		end
 =end
-	@grid[3][3] = Horse.new [3,3], "White"
+	@grid[3][3] = Rook.new [3,3], "White"
 
+	@grid[3][0] = Horse.new [3,0], "Black"
+	@grid[3][6] = Horse.new [3,0], "White"
 	end
 
 	def move_piece(from, to)
@@ -75,7 +77,7 @@ class Board
 		draw_board
 		gets
 		puts "Moving from #{from} to #{to}"
-		
+
 		return true unless valid_moves.include? to 
 
 		false
