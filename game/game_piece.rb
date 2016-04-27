@@ -19,5 +19,9 @@ class GamePiece
 		not @moved
 	end
 
-
+	def trace_path(*vectors)
+		vectors.each do |vector|
+			
+		end
+	end
 end
