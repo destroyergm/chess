@@ -4,7 +4,6 @@ require "yaml"
 class Game
 
 	def initialize
-		@board = Board.new
 		@color = "White"
 	end
 
@@ -12,6 +11,7 @@ class Game
 		# check for load call here
 
 		# else
+		@board = Board.new
 		@board.new_game
 		loop do
 			system 'clear'

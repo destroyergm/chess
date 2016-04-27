@@ -8,8 +8,13 @@ require_relative "horse"
 
 class Board
 
-	attr_accessor :rows, :cols
-	
+	attr_accessor :rows, :cols, :grid
+		
+
+	# Call one of the helper methods to initialize the grid
+	# New game sets up the board to a new chess game
+	# Load sets up the board to load the board from a file
+	# You can also make custom grids by editing the @grid variable afher the .new call
 	def initialize
 		@rows = 8
 		@cols = 8
@@ -50,9 +55,9 @@ class Board
 	end
 
 	def new_game
-		@grid[3][3] = Rook.new [3,3], "White"
-		@grid[3][0] = Horse.new [3,0], "Black"
-		@grid[3][6] = Horse.new [3,0], "White"
+		@grid[3][3] = Rook.new [3,3], "White", @grid
+		@grid[3][0] = Horse.new [3,0], "Black", @grid
+		@grid[3][6] = Horse.new [3,0], "White", @grid
 	end
 
 	def move_piece(from, to)
@@ -70,10 +75,10 @@ class Board
 		return true if piece.nil?
 		return true if piece.color != player
 
-		valid_moves = piece.get_available_moves @grid
+		valid_moves = piece.get_available_moves
 
 		valid_moves.each do |move|
-			@grid[move[0]][move[1]] = Pawn.new [move[0],move[1]],"Black"
+			@grid[move[0]][move[1]] = Pawn.new [move[0],move[1]],"Black",@grid
 		end
 		
 		draw_board

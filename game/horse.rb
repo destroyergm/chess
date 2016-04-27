@@ -1,13 +1,13 @@
 require_relative "game_piece"
 
 class Horse < GamePiece
-	def initialize(position, color)
+	def initialize(position, color, grid)
 		@position = position
 		@color = color
-		super "horse", color == "Black" ? "♞" : "♘"
+		super "horse", color == "Black" ? "♞" : "♘", grid
 	end
 
-	def get_available_moves grid
+	def get_available_moves
 		moves = []
 		row = position[0]
 		col = position[1]

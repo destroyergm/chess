@@ -1,13 +1,13 @@
 require_relative "game_piece"
 
 class Pawn < GamePiece
-	def initialize(position, color)
+	def initialize(position, color, grid)
 		@position = position
 		@color = color
-		super "pawn", color == "Black" ? "♟" : "♙"
+		super "pawn", color == "Black" ? "♟" : "♙", grid
 	end
 
-	def get_available_moves grid
+	def get_available_moves
 		moves = []
 		row = @position[0]
 		col = @position[1]
