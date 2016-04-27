@@ -22,6 +22,7 @@ class GamePiece
 	end
 
 	# Retuns valid moves in the given unit vectors array
+	# TODO: Refactor the code to use vector variables in a for loop to avoid repeating code?
 	def trace_path(*vectors)
 		moves = []
 		row = @position[0]
@@ -34,7 +35,7 @@ class GamePiece
 			when [0,-1] then moves += Util::from_to([row+1,col],[7,col],{:grid => grid, :color => color})
 			end
 		end
-		puts "Found valid moves #{moves}"
+		# puts "Found valid moves #{moves}"
 		moves
 	end
 end

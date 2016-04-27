@@ -8,13 +8,47 @@ class Util
 		moves = []	
 
 		# Rows direction
-
+		if start.y == finish.y
+			if start.x > start.y
+				(start.x..finish.x).each do |row|
+					if !grid[row][start.y].nil?
+						moves << [row,start.y] if grid[row][start.y].color != color
+						break
+					end
+					moves << [row,start.y]
+				end	
+			else
+				start.x.downto(0) do |row|
+					if !grid[row][start.y].nil?
+						moves << [row,start.y] if grid[row][start.y].color != color
+						break
+					end
+					moves << [row,start.y]
+				end
+			end
 		# Columns direction
-		if start.x == finish.x
-
+		elsif start.x == finish.x
+			if start.y < finish.y
+				(start.y..finish.y).each do |col|
+					if !grid[start.x][col].nil?
+						moves << [start.x,col] if grid[start.x][col].color != color
+						break
+					end
+					moves << [start.x,col]
+				end				
+			else
+				start.y.downto(0) do |col|
+					if !grid[start.x][col].nil?
+						moves << [start.x,col] if grid[start.x][col].color != color
+						break
+					end
+					moves << [start.x,col]
+				end
+			end
 		end
 
-		moves << [0,0]
+		# TODO: Diagonal direction
+		moves
 	end
 end
 
