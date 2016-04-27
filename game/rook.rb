@@ -8,54 +8,6 @@ class Rook < GamePiece
 	end
 
 	def get_available_moves
-		moves = []
-		row = @position[0]
-		col = @position[1]
-
-		(row+1..7).each do |i|
-			if !grid[i][col].nil?
-				# If it's an enemy piece, you can move there
-				# If it's an ally piece, block movement
-				break if grid[i][col].color == @color
-				moves << [i,col]
-				break
-			end
-			moves << [i,col]
-		end
-
-		(row-1).downto(0) do |i|
-			if !grid[i][col].nil?
-				# If it's an enemy piece, you can move there
-				# If it's an ally piece, block movement
-				break if grid[i][col].color == @color
-				moves << [i,col]
-				break
-			end
-			moves << [i,col]
-		end
-
-		(col+1..7).each do |i|
-			if !grid[row][i].nil?
-				# If it's an enemy piece, you can move there
-				# If it's an ally piece, block movement
-				break if grid[row][i].color == @color
-				moves << [row,i]
-				break
-			end
-			moves << [row,i]
-		end
-
-		(col-1).downto(0) do |i|
-			if !grid[row][i].nil?
-				# If it's an enemy piece, you can move there
-				# If it's an ally piece, block movement
-				break if grid[row][i].color == @color
-				moves << [row,i]
-				break
-			end
-			moves << [row,i]
-		end
-
-		moves
+		trace_path([1,0],[0,1],[0,-1],[-1,0])
 	end
 end

@@ -20,8 +20,18 @@ class GamePiece
 	end
 
 	def trace_path(*vectors)
+		moves = []
+		row = @position[0]
+		col = @position[1]
 		vectors.each do |vector|
-			
+			case vector
+			when [1,0] then moves << Util::from_to([row,col+1],[row,7])
+			when [0,1] then moves << Util::from_to([row-1,col],[0,col])
+			when [-1,0] then moves << Util::from_to([row,col-1],[row,0])
+			when [0,-1] then moves << Util::from_to([row+1,col],[7,col])
+			end
 		end
+		puts "Found valid moves #{moves}"
+		moves
 	end
 end
