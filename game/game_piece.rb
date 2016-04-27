@@ -1,3 +1,5 @@
+require_relative "util"
+
 class GamePiece
 
 	attr_accessor :type, :color, :position, :game_symbol, :moved, :grid
