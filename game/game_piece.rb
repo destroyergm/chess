@@ -21,16 +21,17 @@ class GamePiece
 		not @moved
 	end
 
+	# Retuns valid moves in the given unit vectors array
 	def trace_path(*vectors)
 		moves = []
 		row = @position[0]
 		col = @position[1]
 		vectors.each do |vector|
 			case vector
-			when [1,0] then moves << Util::from_to([row,col+1],[row,7])
-			when [0,1] then moves << Util::from_to([row-1,col],[0,col])
-			when [-1,0] then moves << Util::from_to([row,col-1],[row,0])
-			when [0,-1] then moves << Util::from_to([row+1,col],[7,col])
+			when [1,0] then moves += Util::from_to([row,col+1],[row,7],{:grid => grid, :color => color})
+			when [0,1] then moves += Util::from_to([row-1,col],[0,col],{:grid => grid, :color => color})
+			when [-1,0] then moves += Util::from_to([row,col-1],[row,0],{:grid => grid, :color => color})
+			when [0,-1] then moves += Util::from_to([row+1,col],[7,col],{:grid => grid, :color => color})
 			end
 		end
 		puts "Found valid moves #{moves}"

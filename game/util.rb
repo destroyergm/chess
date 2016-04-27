@@ -1,11 +1,20 @@
 class Util 
-	def self.from_to(p1,p2)
+	def self.from_to(p1,p2,options = {})
 		start = Point::from_array(p1)
 		finish = Point::from_array(p2)
+		grid = options[:grid]
+		color = options[:color]
+
 		moves = []	
 
-		
-		moves
+		# Rows direction
+
+		# Columns direction
+		if start.x == finish.x
+
+		end
+
+		moves << [0,0]
 	end
 end
 
