@@ -19,9 +19,14 @@ class Board
 		@rows = 8
 		@cols = 8
 		@grid = Array.new(rows) { Array.new(cols) }
+	end
+
+	def new_game
+		@grid[3][3] = Rook.new [3,3], "White", @grid
+		@grid[3][0] = Horse.new [3,0], "Black", @grid
+		@grid[3][6] = Horse.new [3,0], "White", @grid
 		
 		# Fills the game grid with data
-=begin
 		# Pawns
 		(0...@rows).each do |i|
 			(0...@cols).each do |j|
@@ -51,13 +56,6 @@ class Board
 			row = 7
 			color = "White"
 		end
-=end
-	end
-
-	def new_game
-		@grid[3][3] = Rook.new [3,3], "White", @grid
-		@grid[3][0] = Horse.new [3,0], "Black", @grid
-		@grid[3][6] = Horse.new [3,0], "White", @grid
 	end
 
 	def move_piece(from, to)

@@ -9,10 +9,14 @@ class Game
 
 	def start(load=nil)
 		# check for load call here
-
-		# else
 		@board = Board.new
-		@board.new_game
+		@board.grid[3][3] = Rook.new [3,3], "White", @board.grid
+		@board.grid[3][0] = Horse.new [3,0], "Black", @board.grid
+		@board.grid[3][6] = Horse.new [3,0], "White", @board.grid
+				
+		# else
+		# @board = Board.new
+		# @board.new_game
 		loop do
 			system 'clear'
 			@board.draw_board
