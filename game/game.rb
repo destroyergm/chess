@@ -10,7 +10,7 @@ class Game
 	def start(load=nil)
 		# check for load call here
 		@board = Board.new
-		@board.grid[3][3] = Rook.new [3,3], "White", @board.grid
+		@board.grid[3][3] = Queen.new [3,3], "White", @board.grid
 		@board.grid[3][0] = Horse.new [3,0], "Black", @board.grid
 		@board.grid[3][6] = Horse.new [3,0], "White", @board.grid
 				
