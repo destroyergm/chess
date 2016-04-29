@@ -33,6 +33,7 @@ class GamePiece
 			when [0,1] then moves += Util::from_to([row-1,col],[0,col],{:grid => grid, :color => color})
 			when [-1,0] then moves += Util::from_to([row,col-1],[row,0],{:grid => grid, :color => color})
 			when [0,-1] then moves += Util::from_to([row+1,col],[7,col],{:grid => grid, :color => color})
+			when [1,1] then moves += Util::from_to([row-1,col-1],[7,7], {:grid => grid, :color => color})
 			end
 		end
 		# puts "Found valid moves #{moves}"

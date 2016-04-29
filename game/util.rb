@@ -45,9 +45,20 @@ class Util
 					moves << [start.x,col]
 				end
 			end
+		# Diagonal direction
+		else 
+			# top-right diagnoal 
+			i, j = start.x, start.y
+			if start.x < finish.x && start.y < finish.y
+				while i >= 0 && j >= 0
+					moves << [i,j]
+					i -= 1
+					j -= 1
+				end
+			end
 		end
+			
 
-		# TODO: Diagonal direction
 		moves
 	end
 end
