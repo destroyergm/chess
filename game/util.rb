@@ -49,7 +49,7 @@ class Util
 		else 
 			# top-right diagnoal 
 			i, j = start.x, start.y
-			if start.x < finish.x && start.y < finish.y
+			if start.x > finish.x && start.y < finish.y
 				while i >= 0 && j <= finish.y
 					moves << [i,j]
 					i -= 1
@@ -62,6 +62,13 @@ class Util
 					i -= 1
 					j -= 1
 				end	
+			# bottom-right diagonal
+			elsif start.x < finish.x && start.y < finish.y
+				while i <= finish.x && j <= finish.y
+					moves << [i,j]
+					j += 1
+					i += 1
+				end
 			end
 		end
 			
