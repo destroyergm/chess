@@ -23,6 +23,8 @@ class GamePiece
 
 	# Retuns valid moves in the given unit vectors array
 	# TODO: Refactor the code to use vector variables in a for loop to avoid repeating code?
+	# Idea: Push the point in the given unit vector unitl a board begeining or end is reached
+	# or if a other place color is reached
 	def trace_path(*vectors)
 		moves = []
 		row = @position[0]
@@ -33,7 +35,8 @@ class GamePiece
 			when [0,1] then moves += Util::from_to([row-1,col],[0,col],{:grid => grid, :color => color})
 			when [-1,0] then moves += Util::from_to([row,col-1],[row,0],{:grid => grid, :color => color})
 			when [0,-1] then moves += Util::from_to([row+1,col],[7,col],{:grid => grid, :color => color})
-			when [1,1] then moves += Util::from_to([row-1,col-1],[7,7], {:grid => grid, :color => color})
+			when [1,1] then moves += Util::from_to([row-1,col+1],[7,7], {:grid => grid, :color => color})
+			when [-1,1] then moves += Util::from_to([row-1,col-1],[0,0], {:grid => grid, :color => color})
 			end
 		end
 		# puts "Found valid moves #{moves}"

@@ -8,6 +8,6 @@ class Queen < GamePiece
 	end
 
 	def get_available_moves
-		trace_path([1,0],[0,1],[0,-1],[-1,0],[1,1])
+		trace_path([1,0],[0,1],[0,-1],[-1,0],[1,1],[-1,1])
 	end
 end
