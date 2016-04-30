@@ -69,6 +69,13 @@ class Util
 					j += 1
 					i += 1
 				end
+			# bottom-left diagonal
+			else
+				while i <= finish.x && j >= 0
+					moves << [i,j]
+					i += 1
+					j -= 1
+				end
 			end
 		end
 			
