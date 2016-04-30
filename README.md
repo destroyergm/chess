@@ -10,10 +10,9 @@ The game in the current state is WIP
 ## Working features:
  - Rendering of the game board
  - Chess input to matrix parser
- - Move validation for pawns, rooks
+ - Move validation for game pieces
 
 ## Not implemented:
- - Move validation for Queens, Horses, Bishops, Kings
  - Check-mate condtions, stalemate
  - King dosn't get a priority if he is beeing targeted
  - You can't turn pawns intro Queens when reaching the oposite side
@@ -45,6 +44,6 @@ The project also includes some RSpec tests, in order to see them you type `rake`
 
 ```
 # Features
-- [ ]  Fully functional chess game
+- [x]  Fully functional chess game
 - [ ]  Simple AI
 - [ ]  Online versus for 2 players
