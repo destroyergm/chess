@@ -22,16 +22,12 @@ class Board
 	end
 
 	def new_game
-		@grid[3][3] = Rook.new [3,3], "White", @grid
-		@grid[3][0] = Horse.new [3,0], "Black", @grid
-		@grid[3][6] = Horse.new [3,0], "White", @grid
-		
 		# Fills the game grid with data
 		# Pawns
 		(0...@rows).each do |i|
 			(0...@cols).each do |j|
-				@grid[i][j] = Pawn.new [i,j], "Black" if i == 1
-				@grid[i][j] = Pawn.new [i,j], "White" if i == 6
+				@grid[i][j] = Pawn.new [i,j], "Black", @grid if i == 1
+				@grid[i][j] = Pawn.new [i,j], "White", @grid if i == 6
 			end
 		end
 
@@ -40,18 +36,18 @@ class Board
 		color = "Black"
 		row = 0
 		2.times do 
-			@grid[row][0] = Rook.new [row,0], color
-			@grid[row][7] = Rook.new [row,0], color
+			@grid[row][0] = Rook.new [row,0], color, @grid
+			@grid[row][7] = Rook.new [row,0], color, @grid
 		
-			@grid[row][1] = Horse.new [row,1], color
-			@grid[row][6] = Horse.new [row,6], color
+			@grid[row][1] = Horse.new [row,1], color, @grid
+			@grid[row][6] = Horse.new [row,6], color, @grid
 
-			@grid[row][2] = Bishop.new [row,2], color
-			@grid[row][5] = Bishop.new [row,5], color
+			@grid[row][2] = Bishop.new [row,2], color, @grid
+			@grid[row][5] = Bishop.new [row,5], color, @grid
 
-			@grid[row][3] = Queen.new [row,3], color
-			@grid[row][4] = King.new [row,4], color
-
+			@grid[row][3] = Queen.new [row,3], color, @grid
+			@grid[row][4] = King.new [row,4], color, @grid
+			
 			# Second iteration fill the white pieces
 			row = 7
 			color = "White"
@@ -74,14 +70,6 @@ class Board
 		return true if piece.color != player
 
 		valid_moves = piece.get_available_moves
-
-		valid_moves.each do |move|
-			@grid[move[0]][move[1]] = Pawn.new [move[0],move[1]],"Black",@grid
-		end
-		
-		draw_board
-		gets
-		puts "Moving from #{from} to #{to}"
 
 		return true unless valid_moves.include? to 
 

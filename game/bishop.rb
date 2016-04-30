@@ -6,4 +6,8 @@ class Bishop < GamePiece
 		@color = color
 		super "bishop", color == "Black" ? "♝" : "♗", grid
 	end
+
+	def get_available_moves
+		trace_path([1,1],[-1,1],[-1,-1],[1,-1])
+	end
 end

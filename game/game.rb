@@ -10,13 +10,7 @@ class Game
 	def start(load=nil)
 		# check for load call here
 		@board = Board.new
-		@board.grid[3][3] = Queen.new [3,3], "White", @board.grid
-		@board.grid[3][0] = Horse.new [3,0], "Black", @board.grid
-		@board.grid[3][6] = Horse.new [3,0], "White", @board.grid
-				
-		# else
-		# @board = Board.new
-		# @board.new_game
+		@board.new_game
 		loop do
 			system 'clear'
 			@board.draw_board
@@ -53,7 +47,7 @@ class Game
 			
 
 			@board.move_piece(from,to)
-			# @color == "White" ? @color = "Black" : @color = "White" 
+			@color == "White" ? @color = "Black" : @color = "White" 
 		end
 	end
 

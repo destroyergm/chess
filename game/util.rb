@@ -51,6 +51,10 @@ class Util
 			i, j = start.x, start.y
 			if start.x > finish.x && start.y < finish.y
 				while i >= 0 && j <= finish.y
+					if !grid[i][j].nil?
+						moves << [i,j] if grid[i][j].color != color
+						break
+					end
 					moves << [i,j]
 					i -= 1
 					j += 1
@@ -58,6 +62,10 @@ class Util
 			# top-left diagonal
 			elsif start.x > finish.x && start.y > finish.y
 				while i >= 0 && j >= 0
+					if !grid[i][j].nil?
+						moves << [i,j] if grid[i][j].color != color
+						break
+					end
 					moves << [i,j]
 					i -= 1
 					j -= 1
@@ -65,6 +73,10 @@ class Util
 			# bottom-right diagonal
 			elsif start.x < finish.x && start.y < finish.y
 				while i <= finish.x && j <= finish.y
+					if !grid[i][j].nil?
+						moves << [i,j] if grid[i][j].color != color
+						break
+					end
 					moves << [i,j]
 					j += 1
 					i += 1
@@ -72,6 +84,10 @@ class Util
 			# bottom-left diagonal
 			else
 				while i <= finish.x && j >= 0
+					if !grid[i][j].nil?
+						moves << [i,j] if grid[i][j].color != color
+						break
+					end
 					moves << [i,j]
 					i += 1
 					j -= 1
